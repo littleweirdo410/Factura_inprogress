@@ -1,0 +1,33 @@
+tests:
+    - test:
+        text: 'кошка ловит мышку'
+        facts:
+            - fact:
+                fact_name: 'Подлежащее_Сказуемое'
+                Subject: 'кошка'
+                Verb: 'ловит'
+
+    - test:
+        text: 'К вечеру боль в задних ногах значительно усиливается'
+        facts:
+            - fact:
+                fact_name: 'PainLocation'
+                Pain: 'боль в задних ногах'
+                Location: 'задних ногах'
+
+    - test:
+        text: 'К вечеру боль в задних ногах значительно усиливается'
+        facts:
+            - fact:
+                fact_name: "PainIncreases"
+                Pain: 'боль в задних ногах'
+                Location: 'задних ногах'
+                Key: 'усиливается'
+
+    - test:
+        text: 'Петя ушел, закрыв дверь'
+        facts:
+            - fact:
+                fact_name: TestAdvPart
+                Key: 'ушел'
+                Gerund: 'закрыв дверь'

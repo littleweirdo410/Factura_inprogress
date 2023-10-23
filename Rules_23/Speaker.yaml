@@ -1,0 +1,23 @@
+FactName: Speaker
+
+Priority: 1
+
+SubFacts:
+    - SubFact:
+        Name: Sing
+
+        Participants:
+          - Obligatory: Speaker
+
+        Items:
+          - C: Key
+            ConstituentType: VP
+            Morph: VERB
+            Lex: заявить|утверждать|высказывать
+
+          - D: Speaker
+            ConstituentType: NP
+            Morph: Case=Nom
+
+        Links: 
+          - C,D: nsubj

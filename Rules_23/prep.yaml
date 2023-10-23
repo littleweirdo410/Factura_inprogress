@@ -1,0 +1,24 @@
+FactName: PrepositionPhrase
+
+Priority: 1
+
+SubFacts:
+
+    - SubFact:
+        Name: PP
+
+        Participants: 
+          - Obligatory: Noun_1, Noun_2
+
+        Items:
+          - A: Key
+            ConstituentType: VP
+          - B: Preposition
+            LexNonHead: из
+          - C: Noun_2
+            ConstituentType: NP
+            Morph: Case=Gen
+
+        Links: 
+          - A,C: obl
+          - C,B: case

@@ -1,0 +1,35 @@
+FactName: PainIncreases
+
+Priority: 10
+
+SubFacts:
+    - SubFact:
+        Name: FromNoun
+
+        Participants: 
+          - Obligatory: Pain, Location
+
+        Items:
+          - A: Pain
+            ConstituentType: NP
+            Lex: боль
+            Morph: NOUN,nomn|accs
+          - B: Location
+            ConstituentType: NP
+            Morph: NOUN,loc2|loct
+          - C: Dummy
+            #LexNonHead: в
+            ListNonHead: предлог_в
+          - D: Key
+            ConstituentType: CP|VP
+            Morph: VERB
+            #Lex: усиливаться|увеличиваться|расти
+            List: усиливаться
+
+
+        Links: 
+          - B,C: one
+          - D,A: subject
+
+        #жалобы на ноющую боль в левом подреберье  усиливается в положении сидя, без иррадиации, ноющего характера
+        #ноющую боль в левом подреберье  усиливается в положении сидя, без иррадиации, ноющего характера

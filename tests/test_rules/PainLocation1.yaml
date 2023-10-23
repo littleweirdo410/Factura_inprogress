@@ -1,0 +1,26 @@
+FactName: PainLocation
+Priority: 10
+
+SubFacts:
+    - SubFact:
+        Name: FromNoun
+
+        Participants: 
+          - Obligatory: Pain, Location
+
+        Items:
+          - A: Pain
+            ConstituentType: NP
+            Lex: боль
+          - B: Location
+            ConstituentType: NP
+            Morph: NOUN,loct
+          - C: Dummy
+            LexNonHead: в
+
+        Links: 
+          - A,B: one
+          - B,C: one
+
+        #Жалобы на боли в ногах. Отеки ног к вечеру. Повторная явка после обследования.
+        #боли в ногах

@@ -1,0 +1,24 @@
+FactName: Подлежащее_Сказуемое
+
+Priority: 10
+
+SubFacts:
+    - SubFact:
+        Name: SV
+
+        Participants: 
+          - Obligatory: Subject, Verb
+
+        Items:
+          - A: Subject
+            ConstituentType: NP
+            Morph: nomn
+          - B: Verb
+            ConstituentType: VP
+            Morph: VERB
+          
+        Links: 
+          - B,A: subject
+
+        Constraints:
+            - Order: A, B

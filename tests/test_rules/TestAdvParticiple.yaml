@@ -1,0 +1,21 @@
+FactName: TestAdvPart
+
+Priority: 20
+
+SubFacts:
+    - SubFact:
+            Name: Verb_with_Gerund
+
+            Participants: 
+              - Obligatory: Gerund
+
+            Items:
+              - A: Key
+                ConstituentType: VP
+              - C: Gerund
+                ConstituentType: VP
+                Morph: GRND
+                Value: constituent
+
+            Links: 
+              - A, C: cp_adjunct
