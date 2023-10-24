@@ -94,18 +94,6 @@ def heads(sent_in_dics):
     return head_ids
 
 
-def rearrange_pp(sent_in_dics):
-    for i, w in sent_in_dics.items():
-        if w['pos'] == 'ADP' and w['head_id'] != 0:
-            head_noun = sent_in_dics[w['head_id']]
-            p_id, head_noun_id = w['idw'], sent_in_dics[w['head_id']]['idw']
-            for s in sent_in_dics.values():
-                if s['idw'] == sent_in_dics[w['head_id']]['head_id']:
-                    noun_head_id = s['idw']
-            head_noun['head_id'] = p_id
-            w['head_id'] = noun_head_id if 'noun_head_id' in locals() else head_noun_id
-    return sent_in_dics
-
 
 def rearrange_cop(sent_in_dics):
     for i, w in sent_in_dics.items():
@@ -375,7 +363,7 @@ class write_json:
                 print('Парсинг предложения: Абзац {}, предложение {}'.format(ind, l))            
                 s_id = str(s_id) + '-' + str(l)
                 sent_w_dicts = sent_dict_from_sents(ind, l, sent, param.parse_w_stanza)
-                sent_in_dics = rearrange_cop(rearrange_pp(sent_w_dicts))
+                sent_in_dics = rearrange_cop(sent_w_dicts)
                 head_set = heads(sent_w_dicts.values())
                 const, const_w = find_children(head_set, sent_w_dicts)[0], find_children(head_set, sent_w_dicts)[1]
                 sent_text = sent.text
@@ -390,7 +378,7 @@ class write_json:
                         if param.xps:
                             all_xps_txt = select_spec_cons(brackets_l, brackets_r, sent_w_dicts, phrase_dict, param.selected_cons, param.emb)[1]
                             all_xps_dict = select_spec_cons(brackets_l, brackets_r, sent_w_dicts, phrase_dict, param.selected_cons, param.emb)[2]
-                        if verbosity: print(sent_parse_for_comparison, "\n")
+                        if verbosity: print(sent_w_dicts, "\n")
                         json_parse.append(create_json(sentence, sent_w_dicts, sent_parse, all_xps_txt, all_xps_dict, s_id, sent_text, 0, head_set, param.parse_w_stanza))
                     else:
                         print(const, check_head(const, sent_w_dicts)[1])
